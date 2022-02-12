@@ -16,11 +16,11 @@ public class PlayerImpl implements Player {
         this.pointsForShouting = pointsForShouting;
     }
 
+    /**
+     * Метод возвращающает рандомную точку из pointsForShouting
+     */
     @Override
     public TablePoint hit() {
-
-        //TODO напиши здесь реализацию удара ракеткой,
-        // возвращающего рандомную точку из pointsForShouting
         return pointsForShouting.stream().skip(new Random().nextInt(pointsForShouting.size())).findFirst().orElse(null);
     }
 }
