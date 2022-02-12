@@ -16,21 +16,30 @@ public class GameImpl implements Game {
            if (pingPongTable.getPlayerTwoTablePoints().contains(oneHit)) {
                System.out.println(oneHit);
                System.out.println("Первый игрок попал!");
-               playerOneGamePoint++;
            } else {
                System.out.println(oneHit);
                System.out.println("Первый игрок промазал!");
+               playerTwoGamePoint++;
+               System.out.println("Второму игроку присуждается очко! Общий счет: " + playerOneGamePoint + " : " + playerTwoGamePoint);
+
            }
+           if(playerTwoGamePoint == 11)
+               break;
+
             TablePoint twoHit = playerTwo.hit();
             if (pingPongTable.getPlayerOneTablePoints().contains(twoHit)) {
                 System.out.println(twoHit);
                 System.out.println("Второй игрок попал!");
-                playerTwoGamePoint++;
             } else {
                 System.out.println(twoHit);
                 System.out.println("Второй игрок промазал!");
+                playerOneGamePoint++;
+                System.out.println("Первому игроку присуждается очко! Общий счет: " + playerOneGamePoint + " : " + playerTwoGamePoint);
             }
+            if(playerOneGamePoint == 11)
+                break;
         }
+
         if(playerOneGamePoint == 11)
             System.out.println("Первый игрок победил!");
         if(playerTwoGamePoint == 11)
